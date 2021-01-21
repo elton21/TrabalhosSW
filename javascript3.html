@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div>Digitar temperatura de 3 cidades </div>
+    
+    <form >
+        <label > Cidade 1: </label>
+        <input id='input1'>
+        <br>
+        <label > Cidade 2: </label>
+        <input id='input2'>
+        <br>
+        <label > Cidade 3: </label>
+        <input id='input3'>
+    </form>
+
+    <button id="bt">submit</button>
+    <p id="aux"></p>
+
+    <script>
+
+        document.getElementById('bt').addEventListener("click", CalcularIdade)
+        function CalcularIdade(){
+            var c1 = Number(document.getElementById('input1').value);
+            var c2 = Number(document.getElementById('input2').value);
+            var c3 = Number(document.getElementById('input3').value);
+            var x = document.getElementById('aux')
+
+            var aux = [c1,c2,c3];
+            var maior = aux[0];
+
+            for(var i = 0; i < aux.length; i ++){
+                if(aux[i] > maior){
+                    maior =  aux[i];
+                }
+            }
+
+            x.innerHTML = "Temperatura mais elevada : " + maior;
+            
+           
+            
+        }
+        //CalcularIdade();
+    </script>
+</body>
+</html>

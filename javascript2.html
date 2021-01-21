@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+    
+    <form >
+        <label > Idade: </label>
+        <input id='input'>
+    </form>
+
+    <button id="bt">submit</button>
+    <p id="aux"></p>
+
+    <script>
+
+        document.getElementById('bt').addEventListener("click", CalcularIdade)
+        function CalcularIdade(){
+            var idade = Number(document.getElementById('input').value);
+            var x = document.getElementById('aux')
+            
+            x.innerHTML = 2020 - idade;
+            
+        }
+        CalcularIdade();
+    </script>
+</body>
+</html>

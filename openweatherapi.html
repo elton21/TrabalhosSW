@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Wheather</title>
+   
+</head>
+<body>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+    <br>
+    
+
+   
+        <form>
+        <label>Nome da Cidade</label>
+         <input class="input">
+         </form>
+         <button class="btn" type="button">Submit</button>
+            
+        <h1 class="location-timezone">Cidade</h1>
+        <div class="degree-section">
+        <h2 class="temperature-degree"></h2>
+        <div class="temperature-description"></div>
+    
+        
+    
+    
+    <script>
+var timezone = document.querySelector(".location-timezone");
+var temperature = document.querySelector(".temperature-degree");
+var tempDescription = document.querySelector(".temperature-description");
+var inputvalue = document.querySelector(".input");
+var btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function(){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputvalue.value+'&appid=23768ae744791f0e805f42ea55ad1787&units=metric')
+    .then(response => response.json())
+    .then(data => {
+    console.log(data);
+    timezone.innerHTML = data['name'];
+    var aux = data.main.temp;
+    temperature.innerHTML = Math.ceil(aux) + " C º";
+    tempDescription.innerHTML = data.weather[0].description;
+   })
+});
+    
+    </script>
+    
+</body>
+</html>

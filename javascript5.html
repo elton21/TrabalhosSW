@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+ 
+    <form action="">
+        <label > Nome: </label>
+        <input id='input1'>
+        <br>
+        <label > Apelido: </label>
+        <input id='input2'>
+    </form>
+
+    <button id="btn">submit</button>
+    <p id="aux">dd</p>
+   
+
+
+    <script>
+
+    document.getElementById("btn").addEventListener("click", Concat);
+
+    function Concat(){
+        var nome = document.getElementById('input1').value;
+        var apelido = document.getElementById('input2').value;
+ 
+
+        var aux = `Olá ${nome} ${apelido}, como esta ?`;
+        document.getElementById('aux').innerHTML = aux;
+   }
+
+    </script>
+
+
+    
+</body>
+</html>

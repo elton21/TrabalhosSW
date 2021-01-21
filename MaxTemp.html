@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div>Digitar Temperatura de 10 cidades </div>
+
+    <form action="">
+    <label > dados: </label>
+        <input id="input1">
+    </form>
+    <br>
+    <button id="btn">submit</button>
+    <p id="max"></p>
+    <p id="avg"></p>
+
+
+    <script>
+
+    document.getElementById("btn").addEventListener("click", MaxTem);
+
+    function MaxTem(){
+        var x = document.getElementById('input1').value;
+        var aux = x.split(',');
+        
+        var maior = Number(aux[0]);
+        var sum = 0;
+        for(var i = 0; i < aux.length; i ++){
+            sum += Number(aux[i]);
+            if(aux[i] > maior){
+                maior = aux[i];
+            }
+        }
+        //sum /= aux.length;
+
+        //document.getElementById("max").innerHTML = "max :" + maior;
+        document.getElementById("avg").innerHTML = "média : " + sum;
+   
+}
+
+    </script>
+
+
+    
+</body>
+</html>
