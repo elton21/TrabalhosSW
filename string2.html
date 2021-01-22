@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div>Abreviar nome</div>
+    <form>
+        <label>
+            <input id="input">
+        </label>
+    </form>
+    <br>
+    <button id="btn">submit</button>
+    <p id="resultado"></p>
+
+
+
+
+
+    <script>
+
+document.getElementById("btn").document.addEventListener('click', Abreviatura)
+   //EX3 Strings
+function Abreviatura(){
+    var name = document.getElementById('input').value;
+    //remover espaços duplos
+    name = name.replace(/\s{2,}/g,'');
+
+    var aux = [];
+
+    var posAnterior = 0;
+    for(var i = 0; i < name.length; i ++){
+        if(name[i] == ' '){
+            aux.push(name.substring(posAnterior ,i));
+
+            //guarda a pos do último espaço encontrado
+            posAnterior = i;
+        }
+    }
+
+    
+    //Adicionar último nome
+    aux.push(name.substring(posAnterior, name.length));
+    var prepo = ["da", "de", "do", "e", "dos", "das"];
+
+
+    //remover espaços
+    for(var i = 0; i < aux.length; i ++){
+        aux[i] = aux[i].replace(/\s/g,'');
+    }
+
+    //Remover preposições
+    var pos = 0;
+    for(var i = 0; i < aux.length; i ++){
+        for(var j = 0; j < prepo.length; j ++){
+            if(aux[i] == prepo[j]){
+                 pos = i;
+                 aux.splice(pos,1);
+            }
+        }        
+    }
+
+    //Abreviar
+    var final = [];
+    for(var i = 0; i < aux.length; i ++){
+      var aux2 = aux[i];
+      aux2 = aux2.substring(0,1);
+      var para = document.createElement("mySpan");
+      para.innerText = aux2+".";
+      document.body.appendChild(para);
+    }
+
+    
+    
+}
+
+  
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>

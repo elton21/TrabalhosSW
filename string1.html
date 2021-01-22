@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div> Remover espaços e digitos</div>
+    <form>
+        <label>
+            <input id="input">
+        </label>
+    </form>
+    <br>
+    <button id="btn">submit</button>
+    <p id="resultado"></p>
+
+
+
+
+
+    <script>
+
+    document.getElementById("btn").document.addEventListener('click', RemoverEspacosEdigitos)
+    function RemoverEspacosEdigitos(){
+        var valores = document.getElementById("input").value;
+        var x = valores;
+        x = x.replace(/\s/g,'');
+        var aux = [];
+        
+            // adicionar cada caracter da string dentro do array
+            for(var i = 0; i < x.length; i ++){
+                aux.push(x[i])
+            }
+
+            // se o array tiver um caracter ele vai fazer s-s que não tem resultado,
+            //mas se encontrar um número ele faz 10-10 e o resultado vai ser sempre 0
+            // tudo que der zero é um número
+            for(var i = 0; i < aux.length; i ++){
+                if(aux[i] - aux[i] == 0){
+                    x = x.replace(aux[i],'');
+                }
+            }
+
+            document.getElementById("resultado").innerHTML = x;
+        
+}
+
+    </script>
+    
+    
+</body>
+</html>

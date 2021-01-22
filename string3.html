@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <div>Contar Letras e Dígitos</div>
+    <div>Nomes sem acentuação por favor</div>
+    <form>
+        <label>Nome:
+            <input id="nome">
+        </label>
+        <br>
+        <label>Morada:
+            <input id="morada">
+        </label>
+        <br>
+        <label>Telefone:
+            <input id="telefone">
+        </label>
+    </form>
+    <br>
+    <button id="btn">submit</button>
+    <p id="resultado1"></p>
+    <p id="resultado2"></p>
+
+
+
+
+
+    <script>
+
+        document.getElementById("btn").addEventListener('click',ConcatInfo)
+    function ConcatInfo(){
+        var nome = document.getElementById("nome").value;
+        var morada = document.getElementById("morada").value;
+        var tel = document.getElementById("telefone").value;
+
+        var info =  nome+" "+morada+" "+ tel;
+        info = info.replace(/\s/g,'');
+        var countWords = 0;
+        var countNums = 0;
+
+        var alfa = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
+        // contar números
+        for(var i = 0; i < info.length; i++){
+            if(info[i] - info[i] == 0){
+                countNums ++;
+            }
+        }
+
+        //Contar letras
+        for(var i = 0; i < info.length; i++){
+            var aux = info[i].toUpperCase();
+            for(var j = 0; j < alfa.length; j ++){
+                if(aux == alfa[j]){
+                    countWords ++;
+                }
+            }
+        }
+
+        document.getElementById('resultado1').innerHTML = "Quantidade de letras pertencentes ao alfabeto: " + countWords;
+        document.getElementById('resultado2').innerHTML = "Quantidade de digitos " + countNums;
+    }
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>
